@@ -4,13 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer components{
-  .card  {
-    @apply relative drop-shadow-md shadow-lg hover:scale-110 hover:transition-all hover:duration-500 cursor-pointer px-10 py-5 rounded-xl w-32 sm:w-full  md:w-80 md:h-60 ;
+@layer components {
+  .card {
+    @apply relative drop-shadow-md shadow-lg hover:scale-110 hover:transition-all hover:duration-500 cursor-pointer px-10 py-5 rounded-xl w-32 sm:w-full  md:w-80 md:h-60;
   }
   .img {
-    @apply relative w-10
+    @apply relative w-10;
   }
-  
 }

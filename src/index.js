@@ -6,7 +6,7 @@ import { createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
 import reducer from './redux'
-import 'flowbite';
+import 'flowbite'
 
 const store = createStore(reducer, composeWithDevTools())
 

@@ -1,124 +1,140 @@
-import { Bug, Dark, Dragon, Fire, Normal, Water, Fighting, Poison, Rock, Ghost, Steel, Psychic, Ice, Ground, Grass, Flying} from '../img'
+import {
+  Bug,
+  Dark,
+  Dragon,
+  Fire,
+  Normal,
+  Water,
+  Fighting,
+  Poison,
+  Rock,
+  Ghost,
+  Steel,
+  Psychic,
+  Ice,
+  Ground,
+  Grass,
+  Flying,
+  Electric,
+  Fairy
+} from '../img'
 
+export const getFirstType = (data) => {
+  switch (data ? data : null) {
+    case 'grass':
+      return <img className='img' src={Grass} />
 
+    case 'fire':
+      return <img className='img' src={Fire} />
 
-  export const getFirstType = (data) => {
-    switch (data ? data : null) {
-      case 'grass':
-        return <img className='img' src={Grass} />
+    case 'normal':
+      return <img className='img' src={Normal} />
 
-      case 'fire':
-        return <img className='img' src={Fire} />
+    case 'water':
+      return <img className='img' src={Water} />
 
-      case 'normal':
-        return <img className='img' src={Normal} />
+    case 'bug':
+      return <img className='img' src={Bug} />
 
-      case 'water':
-        return <img className='img' src={Water} />
+    case 'fighting':
+      return <img className='img' src={Fighting} />
 
-      case 'bug':
-        return <img className='img' src={Bug} />
+    case 'electric':
+      return <img className='img' src={Electric} />
 
-      case 'fighting':
-        return <img className='img' src={Fighting} />
+    case 'poison':
+      return <img className='img' src={Poison} />
 
-      case 'electric':
-        return <img className='img' src={Electric} />
+    case 'rock':
+      return <img className='img' src={Rock} />
 
-      case 'poison':
-        return <img className='img' src={Poison} />
+    case 'ghost':
+      return <img className='img' src={Ghost} />
 
-      case 'rock':
-        return <img className='img' src={Rock} />
+    case 'steel':
+      return <img className='img' src={Steel} />
 
-      case 'ghost':
-        return <img className='img' src={Ghost} />
+    case 'psychic':
+      return <img className='img' src={Psychic} />
 
-      case 'steel':
-        return <img className='img' src={Steel} />
+    case 'ice':
+      return <img className='img' src={Ice} />
 
-      case 'psychic':
-        return <img className='img' src={Psychic} />
+    case 'dragon':
+      return <img className='img' src={Dragon} />
 
-      case 'ice':
-        return <img className='img' src={Ice} />
+    case 'fairy':
+      return <img className='img' src={Fairy} />
 
-      case 'dragon':
-        return <img className='img' src={Dragon} />
+    case 'ground':
+      return <img className='img' src={Ground} />
 
-      case 'fairy':
-        return <img className='img' src={Fairy} />
+    case 'dark':
+      return <img className='img' src={Dark} />
 
-      case 'ground':
-        return <img className='img' src={Ground} />
+    case 'flying':
+      return <img className='img' src={Flying} />
 
-      case 'dark':
-        return <img className='img' src={Dark} />
-
-      case 'flying':
-        return <img className='img' src={Flying} />
-
-      default:
-    }
+    default:
   }
+}
 
-  export const getSecondType = (data) => {
-    switch (data ? data : null) {
-      case 'grass':
-        return <img className='img' src={Grass} />
+export const getSecondType = (data) => {
+  switch (data ? data : null) {
+    case 'grass':
+      return <img className='img' src={Grass} />
 
-      case 'fire':
-        return <img className='img' src={Fire} />
+    case 'fire':
+      return <img className='img' src={Fire} />
 
-      case 'normal':
-        return <img className='img' src={Normal} />
+    case 'normal':
+      return <img className='img' src={Normal} />
 
-      case 'water':
-        return <img className='img' src={Water} />
+    case 'water':
+      return <img className='img' src={Water} />
 
-      case 'bug':
-        return <img className='img' src={Bug} />
+    case 'bug':
+      return <img className='img' src={Bug} />
 
-      case 'fighting':
-        return <img className='img' src={Fighting} />
+    case 'fighting':
+      return <img className='img' src={Fighting} />
 
-      case 'electric':
-        return <img className='img' src={Electric} />
+    case 'electric':
+      return <img className='img' src={Electric} />
 
-      case 'poison':
-        return <img className='img' src={Poison} />
+    case 'poison':
+      return <img className='img' src={Poison} />
 
-      case 'rock':
-        return <img className='img' src={Rock} />
+    case 'rock':
+      return <img className='img' src={Rock} />
 
-      case 'ghost':
-        return <img className='img' src={Ghost} />
+    case 'ghost':
+      return <img className='img' src={Ghost} />
 
-      case 'steel':
-        return <img className='img' src={Steel} />
+    case 'steel':
+      return <img className='img' src={Steel} />
 
-      case 'psychic':
-        return <img className='img' src={Psychic} />
+    case 'psychic':
+      return <img className='img' src={Psychic} />
 
-      case 'ice':
-        return <img className='img' src={Ice} />
+    case 'ice':
+      return <img className='img' src={Ice} />
 
-      case 'dragon':
-        return <img className='img' src={Dragon} />
+    case 'dragon':
+      return <img className='img' src={Dragon} />
 
-      case 'fairy':
-        return <img className='img' src={Fairy} />
+    case 'fairy':
+      return <img className='img' src={Fairy} />
 
-      case 'ground':
-        return <img className='img' src={Ground} />
+    case 'ground':
+      return <img className='img' src={Ground} />
 
-      case 'dark':
-        return <img className='img' src={Dark} />
+    case 'dark':
+      return <img className='img' src={Dark} />
 
-      case 'flying':
-        return <img className='img' src={Flying} />
+    case 'flying':
+      return <img className='img' src={Flying} />
 
-
-      default:
-    }
+    default:
   }
+}

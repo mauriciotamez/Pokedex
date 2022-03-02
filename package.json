@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "pokedex",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,12 +16,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build:css": "npx postcss src/theme/index.css -o src/assets/styles.css",
-    "watch:css": "npx postcss -w src/theme/index.css -o src/assets/styles.css",
+    "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./public/style.css --watch",
+    "watch:css": "npx postcss -w src/index.css -o src/styles.css",
     "build": "react-scripts build && npm run build:css",
     "start": "react-scripts start && npm run watch:css"
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",

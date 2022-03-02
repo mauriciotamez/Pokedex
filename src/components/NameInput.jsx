@@ -18,8 +18,7 @@ const NameInput = () => {
   //  }, []);
 
   return (
-
-    <div className=' flex justify-center items-center h-screen pb-56 '>
+    <div className=' flex justify-center items-center h-screen pb-56  '>
       <form onSubmit={submit}>
         <label className=''>
           <h1 className='text-5xl font-head'>What's your name trainer </h1>
@@ -33,7 +32,6 @@ const NameInput = () => {
         <button>Submit</button>
       </form>
     </div>
-
   )
 }
 

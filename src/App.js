@@ -1,16 +1,11 @@
-import {
-  HashRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import NameInput from './components/NameInput'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import Pokedex from './components/Pokedex'
 import './styles.css'
-import PokemonDetail from './components/PokemonDetail'
+import PokemonDetail from './components/PokemonDetail '
 
-
-function App () {
+function App() {
   return (
     <HashRouter>
       <Routes>
@@ -22,6 +17,6 @@ function App () {
       </Routes>
     </HashRouter>
   )
-};
+}
 
 export default App

@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   name: '',
-  pokemon: [],
+  pokemon: []
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -14,10 +14,10 @@ const reducer = (state = INITIAL_STATE, action) => {
     case 'SET_POKEMON':
       return {
         ...state,
-        pokemon:action.payload
+        pokemon: action.payload
       }
-    
-      default:
+
+    default:
       return state
   }
 }

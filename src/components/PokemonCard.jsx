@@ -19,19 +19,17 @@ import rock from '../img/type_rock.png'
 import ground from '../img/type_ground.png'
 import fighting from '../img/type_fighting.png'
 
-import poke_bg_gray from '../img/poke_bg_gray.png'
+import poke_bg_gray from '../img/poke_bg_gray.png '
 
 const PokemonCard = ({ url }) => {
-  console.log(url)
   const [pokemon, setPokemon] = useState({})
 
   useEffect(() => {
-    axios.get(`${url}`)
-      .then(res => {
-        setPokemon(res.data)
-      })
-  }, [])
-
+    axios.get(`${url}`).then((res) => {
+      setPokemon(res.data)
+    })
+  }, [url])
+  // TODO > need to refactor the code below into a switch and store it into utils
   const getType = () => {
     switch (pokemon.types?.[0].type.name) {
       case 'grass':
@@ -91,142 +89,230 @@ const PokemonCard = ({ url }) => {
   }
   getType('grass')
   return (
-  // Change the bg color of the card depending on the pokemon type -----------------------------------------------------------------------------------
+    // Change the bg color of the card depending on the pokemon type -----------------------------------------------------------------------------------
 
-    <div
-      className={
-                getType()
-            }
-    >
+    <div className={getType()}>
       {/* ---------------------------------------------------------------------------------------------------------------------------------------------- */}
 
       {/* Change the h1 color when needed to meet contrast rules -------------------------------------------------------------------------------------- */}
-      <h1 className={pokemon.types?.[0].type.name === 'electric'
-        ? 'font-head text-2xl text-gray-900 text-center mb-5  md:text-3xl lg:text-2xl'
-        : pokemon.types?.[0].type.name === 'psychic'
-          ? ' font-head text-2xl text-gray-900 text-center mb-5  md:text-3xl lg:text-2xl'
-          : 'font-head text-4xl text-neutral-50 text-center mb-5  md:text-3xl lg:text-2xl'}
+      <h1
+        className={
+          pokemon.types?.[0].type.name === 'electric'
+            ? 'font-head text-2xl text-gray-900 text-center mb-5  md:text-3xl lg:text-2xl'
+            : pokemon.types?.[0].type.name === 'psychic'
+            ? ' font-head text-2xl text-gray-900 text-center mb-5  md:text-3xl lg:text-2xl'
+            : 'font-head text-4xl text-neutral-50 text-center mb-5  md:text-3xl lg:text-2xl'
+        }
       >
         {pokemon.name?.slice(0, 10).toUpperCase()}
       </h1>
 
       <div>
-        <div className={pokemon.types?.[0].type.name === 'electric'
-          ? 'text-gray-900'
-          : pokemon.types?.[0].type.name === 'psychic'
-            ? 'text-gray-900'
-            : 'text-neutral-50'}
+        <div
+          className={
+            pokemon.types?.[0].type.name === 'electric'
+              ? 'text-gray-900'
+              : pokemon.types?.[0].type.name === 'psychic'
+              ? 'text-gray-900'
+              : 'text-neutral-50'
+          }
         >
           {/* Set type img, depending on first type of pkmn------------------------------------------------------------------------------------------- */}
           {
-                    pokemon.types?.[0].type.name === 'fire'
-                      ? <img className='w-14 relative right-1' src={fire} alt='fire' />
-                      : pokemon.types?.[0].type.name === 'grass'
-                        ? <img className='w-16 relative right-2' src={grass} alt='fire' />
-                        : pokemon.types?.[0].type.name === 'water'
-                          ? <img className='w-14 relative right-1' src={water} alt='fire' />
-                          : pokemon.types?.[0].type.name === 'normal'
-                            ? <img className='w-14 relative right-1' src={normal} alt='fire' />
-                            : pokemon.types?.[0].type.name === 'bug'
-                              ? <img className='w-14 relative right-1' src={bug} alt='bug' />
-                              : pokemon.types?.[0]?.type.name === 'poison'
-                                ? <img className='w-16 relative right-2' src={poison} alt='poison' />
-                                : pokemon.types?.[0]?.type.name === 'bug'
-                                  ? <img className='w-16 relative right-2' src={bug} alt='bug' />
-                                  : pokemon.types?.[0]?.type.name === 'fairy'
-                                    ? <img className='w-16 relative right-2' src={fairy} alt='fairy' />
-                                    : pokemon.types?.[0]?.type.name === 'dark'
-                                      ? <img className='w-16 relative right-2' src={dark} alt='dark' />
-                                      : pokemon.types?.[0]?.type.name === 'dragon'
-                                        ? <img className='w-14 relative right-1' src={dragon} alt='dragon' />
-                                        : pokemon.types?.[0]?.type.name === 'ice'
-                                          ? <img className='w-14 relative right-1' src={ice} alt='ice' />
-                                          : pokemon.types?.[0]?.type.name === 'psychic'
-                                            ? <img className='w-16 relative right-2' src={psychic} alt='psychic' />
-                                            : pokemon.types?.[0]?.type.name === 'electric'
-                                              ? <img className='w-16 relative right-2' src={electric} alt='electric' />
-                                              : pokemon.types?.[0]?.type.name === 'steel'
-                                                ? <img className='w-16 relative right-2' src={steel} alt='steel' />
-                                                : pokemon.types?.[0]?.type.name === 'ghost'
-                                                  ? <img className='w-16 relative right-2' src={ghost} alt='ghost' />
-                                                  : pokemon.types?.[0]?.type.name === 'rock'
-                                                    ? <img className='w-14 relative right-1' src={rock} alt='rock' />
-                                                    : pokemon.types?.[0]?.type.name === 'ground'
-                                                      ? <img className='w-16 relative right-2' src={ground} alt='ground' />
-                                                      : pokemon.types?.[0]?.type.name === 'fighting'
-                                                        ? <img className='w-16 relative right-2' src={fighting} alt='fighting' />
-                                                        : pokemon.types?.[0]?.type.name
-                }
+            // TODO > need to refactor the code below into a switch and store it into utils
+            pokemon.types?.[0].type.name === 'fire' ? (
+              <img className='w-14 relative right-1' src={fire} alt='fire' />
+            ) : pokemon.types?.[0].type.name === 'grass' ? (
+              <img className='w-16 relative right-2' src={grass} alt='fire' />
+            ) : pokemon.types?.[0].type.name === 'water' ? (
+              <img className='w-14 relative right-1' src={water} alt='fire' />
+            ) : pokemon.types?.[0].type.name === 'normal' ? (
+              <img className='w-14 relative right-1' src={normal} alt='fire' />
+            ) : pokemon.types?.[0].type.name === 'bug' ? (
+              <img className='w-14 relative right-1' src={bug} alt='bug' />
+            ) : pokemon.types?.[0]?.type.name === 'poison' ? (
+              <img
+                className='w-16 relative right-2'
+                src={poison}
+                alt='poison'
+              />
+            ) : pokemon.types?.[0]?.type.name === 'bug' ? (
+              <img className='w-16 relative right-2' src={bug} alt='bug' />
+            ) : pokemon.types?.[0]?.type.name === 'fairy' ? (
+              <img className='w-16 relative right-2' src={fairy} alt='fairy' />
+            ) : pokemon.types?.[0]?.type.name === 'dark' ? (
+              <img className='w-16 relative right-2' src={dark} alt='dark' />
+            ) : pokemon.types?.[0]?.type.name === 'dragon' ? (
+              <img
+                className='w-14 relative right-1'
+                src={dragon}
+                alt='dragon'
+              />
+            ) : pokemon.types?.[0]?.type.name === 'ice' ? (
+              <img className='w-14 relative right-1' src={ice} alt='ice' />
+            ) : pokemon.types?.[0]?.type.name === 'psychic' ? (
+              <img
+                className='w-16 relative right-2'
+                src={psychic}
+                alt='psychic'
+              />
+            ) : pokemon.types?.[0]?.type.name === 'electric' ? (
+              <img
+                className='w-16 relative right-2'
+                src={electric}
+                alt='electric'
+              />
+            ) : pokemon.types?.[0]?.type.name === 'steel' ? (
+              <img className='w-16 relative right-2' src={steel} alt='steel' />
+            ) : pokemon.types?.[0]?.type.name === 'ghost' ? (
+              <img className='w-16 relative right-2' src={ghost} alt='ghost' />
+            ) : pokemon.types?.[0]?.type.name === 'rock' ? (
+              <img className='w-14 relative right-1' src={rock} alt='rock' />
+            ) : pokemon.types?.[0]?.type.name === 'ground' ? (
+              <img
+                className='w-16 relative right-2'
+                src={ground}
+                alt='ground'
+              />
+            ) : pokemon.types?.[0]?.type.name === 'fighting' ? (
+              <img
+                className='w-16 relative right-2'
+                src={fighting}
+                alt='fighting'
+              />
+            ) : (
+              pokemon.types?.[0]?.type.name
+            )
+          }
         </div>
         {/* ---------------------------------------------------------------------------------------------------------------------------------------- */}
-        <div className={pokemon.types?.[0].type.name === 'electric'
-          ? 'text-gray-900'
-          : pokemon.types?.[0].type.name === 'psychic'
-            ? 'text-gray-900'
-            : 'text-neutral-50'}
+        <div
+          className={
+            pokemon.types?.[0].type.name === 'electric'
+              ? 'text-gray-900'
+              : pokemon.types?.[0].type.name === 'psychic'
+              ? 'text-gray-900'
+              : 'text-neutral-50'
+          }
         >
           {/* Set type img, depending on second type of pkmn------------------------------------------------------------------------------------------- */}
-          {pokemon.types?.[1]?.type.name === 'flying'
-            ? <img className='w-16 relative right-2' src={flying} alt='fire' />
-            : pokemon.types?.[1]?.type.name === 'poison'
-              ? <img className='w-16 relative right-2' src={poison} alt='poison' />
-              : pokemon.types?.[1]?.type.name === 'bug'
-                ? <img className='w-16 relative right-2' src={bug} alt='bug' />
-                : pokemon.types?.[1]?.type.name === 'fairy'
-                  ? <img className='w-16 relative right-2' src={fairy} alt='fairy' />
-                  : pokemon.types?.[1]?.type.name === 'dark'
-                    ? <img className='w-16 relative right-2' src={dark} alt='dark' />
-                    : pokemon.types?.[1]?.type.name === 'dragon'
-                      ? <img className='w-14 relative right-1' src={dragon} alt='dragon' />
-                      : pokemon.types?.[1]?.type.name === 'ice'
-                        ? <img className='w-16 relative right-2' src={ice} alt='ice' />
-                        : pokemon.types?.[1]?.type.name === 'psychic'
-                          ? <img className='w-16 relative right-2' src={psychic} alt='psychic' />
-                          : pokemon.types?.[1]?.type.name === 'electric'
-                            ? <img className='w-16 relative right-2' src={electric} alt='electric' />
-                            : pokemon.types?.[1]?.type.name === 'steel'
-                              ? <img className='w-16 relative right-2' src={steel} alt='steel' />
-                              : pokemon.types?.[1]?.type.name === 'ghost'
-                                ? <img className='w-16 relative right-2' src={ghost} alt='ghost' />
-                                : pokemon.types?.[1]?.type.name === 'rock'
-                                  ? <img className='w-14 relative right-1' src={rock} alt='rock' />
-                                  : pokemon.types?.[1]?.type.name === 'ground'
-                                    ? <img className='w-16 relative right-2' src={ground} alt='ground' />
-                                    : pokemon.types?.[1]?.type.name === 'fighting'
-                                      ? <img className='w-16 relative right-2' src={fighting} alt='fighting' />
-                                      : pokemon.types?.[1]?.type.name}
+          {
+            // TODO > need to refactor the code below into a switch and store it into utils
+            pokemon.types?.[1]?.type.name === 'flying' ? (
+              <img className='w-16 relative right-2' src={flying} alt='fire' />
+            ) : pokemon.types?.[1]?.type.name === 'poison' ? (
+              <img
+                className='w-16 relative right-2'
+                src={poison}
+                alt='poison'
+              />
+            ) : pokemon.types?.[1]?.type.name === 'bug' ? (
+              <img className='w-16 relative right-2' src={bug} alt='bug' />
+            ) : pokemon.types?.[1]?.type.name === 'fairy' ? (
+              <img className='w-16 relative right-2' src={fairy} alt='fairy' />
+            ) : pokemon.types?.[1]?.type.name === 'dark' ? (
+              <img className='w-16 relative right-2' src={dark} alt='dark' />
+            ) : pokemon.types?.[1]?.type.name === 'dragon' ? (
+              <img
+                className='w-14 relative right-1'
+                src={dragon}
+                alt='dragon'
+              />
+            ) : pokemon.types?.[1]?.type.name === 'ice' ? (
+              <img className='w-16 relative right-2' src={ice} alt='ice' />
+            ) : pokemon.types?.[1]?.type.name === 'psychic' ? (
+              <img
+                className='w-16 relative right-2'
+                src={psychic}
+                alt='psychic'
+              />
+            ) : pokemon.types?.[1]?.type.name === 'electric' ? (
+              <img
+                className='w-16 relative right-2'
+                src={electric}
+                alt='electric'
+              />
+            ) : pokemon.types?.[1]?.type.name === 'steel' ? (
+              <img className='w-16 relative right-2' src={steel} alt='steel' />
+            ) : pokemon.types?.[1]?.type.name === 'ghost' ? (
+              <img className='w-16 relative right-2' src={ghost} alt='ghost' />
+            ) : pokemon.types?.[1]?.type.name === 'rock' ? (
+              <img className='w-14 relative right-1' src={rock} alt='rock' />
+            ) : pokemon.types?.[1]?.type.name === 'ground' ? (
+              <img
+                className='w-16 relative right-2'
+                src={ground}
+                alt='ground'
+              />
+            ) : pokemon.types?.[1]?.type.name === 'fighting' ? (
+              <img
+                className='w-16 relative right-2'
+                src={fighting}
+                alt='fighting'
+              />
+            ) : (
+              pokemon.types?.[1]?.type.name
+            )
+          }
         </div>
-        <div className={pokemon.types?.[0].type.name === 'electric'
-          ? 'text-gray-900'
-          : pokemon.types?.[0].type.name === 'psychic'
-            ? 'text-gray-900'
-            : 'text-neutral-50'}
-        > <b>{pokemon.stats?.[0].stat.name}</b> {pokemon.stats?.[0].base_stat}
+        <div
+          className={
+            pokemon.types?.[0].type.name === 'electric'
+              ? 'text-gray-900'
+              : pokemon.types?.[0].type.name === 'psychic'
+              ? 'text-gray-900'
+              : 'text-neutral-50'
+          }
+        >
+          {' '}
+          <b>{pokemon.stats?.[0].stat.name}</b> {pokemon.stats?.[0].base_stat}
         </div>
-        <div className={pokemon.types?.[0].type.name === 'electric'
-          ? 'text-gray-900'
-          : pokemon.types?.[0].type.name === 'psychic'
-            ? 'text-gray-900'
-            : 'text-neutral-50'}
-        > <b>{pokemon.stats?.[1].stat.name}</b> {pokemon.stats?.[1].base_stat}
+        <div
+          className={
+            pokemon.types?.[0].type.name === 'electric'
+              ? 'text-gray-900'
+              : pokemon.types?.[0].type.name === 'psychic'
+              ? 'text-gray-900'
+              : 'text-neutral-50'
+          }
+        >
+          {' '}
+          <b>{pokemon.stats?.[1].stat.name}</b> {pokemon.stats?.[1].base_stat}
         </div>
-        <div className={pokemon.types?.[0].type.name === 'electric'
-          ? 'text-gray-900'
-          : pokemon.types?.[0].type.name === 'psychic'
-            ? 'text-gray-900'
-            : 'text-neutral-50'}
-        > <b>{pokemon.stats?.[2].stat.name}</b> {pokemon.stats?.[2].base_stat}
+        <div
+          className={
+            pokemon.types?.[0].type.name === 'electric'
+              ? 'text-gray-900'
+              : pokemon.types?.[0].type.name === 'psychic'
+              ? 'text-gray-900'
+              : 'text-neutral-50'
+          }
+        >
+          {' '}
+          <b>{pokemon.stats?.[2].stat.name}</b> {pokemon.stats?.[2].base_stat}
         </div>
-        <div className={pokemon.types?.[0].type.name === 'electric'
-          ? 'text-gray-900'
-          : pokemon.types?.[0].type.name === 'psychic'
-            ? 'text-gray-900'
-            : 'text-neutral-50'}
-        > <b>{pokemon.stats?.[3].stat.name}</b> {pokemon.stats?.[3].base_stat}
+        <div
+          className={
+            pokemon.types?.[0].type.name === 'electric'
+              ? 'text-gray-900'
+              : pokemon.types?.[0].type.name === 'psychic'
+              ? 'text-gray-900'
+              : 'text-neutral-50'
+          }
+        >
+          {' '}
+          <b>{pokemon.stats?.[3].stat.name}</b> {pokemon.stats?.[3].base_stat}
         </div>
       </div>
-      <img className='w-62 ml-92  top-1 absolute sm:w-48 sm:ml-24 sm:top-10 z-10' src={pokemon.sprites?.front_default} alt='' />
-      <img className='absolute top-5 left-28 w-56  opacity-25 z-0' src={poke_bg_gray} />
+      <img
+        className='w-62 ml-92  top-1 absolute sm:w-48 sm:ml-24 sm:top-10 z-10'
+        src={pokemon.sprites?.front_default}
+        alt=''
+      />
+      <img
+        className='absolute top-5 left-28 w-56  opacity-25 z-0'
+        src={poke_bg_gray}
+      />
     </div>
   )
 }

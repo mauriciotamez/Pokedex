@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const ProtectedRoutes = () => {
   const name = useSelector((state) => state.name)
 
-  if (true) {
+  if (name) {
     return <Outlet />
   } else {
     return <Navigate to='/' />
